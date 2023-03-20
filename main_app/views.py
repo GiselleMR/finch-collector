@@ -18,6 +18,23 @@ def finches_index(request):
         'finches': finches
     })
 
+# def finches_detail(request, finch_id):
+#   finch = Finch.objects.get(id=finch_id)
+#   # Get the toys the finch doesn't have...
+#   # First, create a list of the toy ids that the finch DOES have
+#   id_list = finch.toys.all().values_list('id')
+#   # Now we can query for toys whose ids are not in the list using exclude
+#   toys_cat_doesnt_have = Toy.objects.exclude(id__in=id_list)
+  
+#   #instantiate FeedingForm to be rendered in detail.html
+#   feeding_form = FeedingForm()
+#   #"context" is what the dict -> template to be rendered
+#   return render(request, 'finch/detail.html', {
+#     'finch': finch,
+#     'feeding_form': feeding_form,
+#     # Add the toys to be displayed
+#     'toys': toys_cat_doesnt_have
+#   })
 def finches_detail(request, finch_id):
    finch = Finch.objects.get(id=finch_id)
    feeding_form = FeedingForm()
